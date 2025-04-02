@@ -1,0 +1,36 @@
+<!-- Указываем базовую страницу -->
+{% extends 'films/base.html' %}
+
+{% block title %}
+	Обзор фильмов
+{% endblock %}
+
+
+{% block content %}
+
+	<h1>Обзор фильмов</h1>
+
+	<!-- Проверяем есть ли фильмы в списке -->
+	{% if films %}
+		<!-- Перебираем все фильмы в списке -->
+		{% for film in films %}
+			<!-- Выводим на сайт всю информацию по фильму -->
+			<div class="card">
+				<div class="card" style="width: 80rem;">
+					<div class="card-body">
+						<h3> {{ film.title }} </h3>
+						<br>
+                        <b>Краткое описание фильма</b>
+						<p> {{ film.description }} </p>
+						<br>
+                        <b>Отзыв на фильм</b>
+						<p> {{ film.review }} </p>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	{% else %}
+		<h4>Фильмов ещё нет.</h4>
+	{% endif %}
+
+{% endblock %}

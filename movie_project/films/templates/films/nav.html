@@ -1,0 +1,8 @@
+{% load static %}
+
+<img src="{% static 'films/img/films.avif' %}" alt="Фильмы" class="aside-img img-fluid rounded-circle">
+<span class="aside-title"><h3>Фильмы</h3></span>
+<nav class="nav flex-column">
+    <a class="nav-link" href="{% url 'films_home' %}">Список фильмов</a>
+    <a class="nav-link" href="{% url 'add_film' %}">Добавить фильм</a>
+</nav>

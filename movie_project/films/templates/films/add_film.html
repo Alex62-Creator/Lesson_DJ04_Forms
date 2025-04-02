@@ -1,0 +1,33 @@
+{% extends 'films/base.html' %}
+
+{% block title %}
+	<title>Страница для добавления фильмов</title>
+{% endblock %}
+
+{% block content %}
+<h1>Страница для добавления фильмов</h1>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            Добавить фильм
+        </div>
+        <div class="card-body">
+	        <form method="post" >
+                <!-- Для прохождения проверки (обход ошибки CSRF) -->
+                {% csrf_token %}
+                <div class="form-group">
+		            {{ form.title }}
+                </div>
+                <div>
+                    {{ form.description }}
+                </div>
+                <div>
+		            {{ form.review }}
+                </div>
+                <button type="submit" class="btn btn-primary">Добавить фильм</button>
+	        </form>
+            <p>{{error}}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
